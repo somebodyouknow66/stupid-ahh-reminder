@@ -1,4 +1,38 @@
 import customtkinter as ctk
+import json
+from datetime import datetime
+import os 
+
+LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "keys_log.json")
+
+def log_answer(answer: str) -> None:
+    """Today's answer"""
+    entry = {
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        "time": datetime.now().strftime("%H:%M:%S"),
+        "answer": answer,
+    }
+    if os.path.exists(LOG_FILE): 
+        with open(LOG_FILE, "r") as f: 
+            try: 
+                    data = json.load(f)
+            except json.JSONDecodeError:
+                    data = []
+    else: 
+        data = []
+        data.append(entry)
+
+    with open(LOG_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def on_yes():
+    log_answer("affirmative")
+    root.destroy() 
+
+
+def on_no():
+    log_answer("negative")
+    root.destroy()
 
 root = ctk.CTk()
 root.geometry("300x200")
@@ -9,12 +43,6 @@ root.resizable(False, False)
 
 window_width, window_height = 320, 140
 
-def on_yes():
-    root.destroy() 
-
-
-def on_no():
-    root.destroy()
 
 label = ctk.CTkLabel(root, text="Did you bring the keys?", font=("Segoe UI", 13))
 label.pack(pady=20)
