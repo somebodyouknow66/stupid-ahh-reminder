@@ -44,14 +44,14 @@ root.resizable(False, False)
 window_width, window_height = 320, 140
 
 
-label = ctk.CTkLabel(root, text="Did you bring the keys?", font=("Segoe UI", 13))
+label = ctk.CTkLabel(root, text="Did you bring the keys?", font=("Dubai", 25))
 label.pack(pady=20)
 
 
-yes_btn = ctk.CTkButton(master=root, text="Affirmative", corner_radius=15, hover_color="#2980b9", text_color="white", border_width=2, border_color="#2c3e50", command=on_yes)
+yes_btn = ctk.CTkButton(master=root, text="Affirmative", corner_radius=15, hover_color="#2980b9", text_color="white", border_width=2, border_color="#2c3e50", command=on_yes, font=("Dubai", 15)) 
 yes_btn.pack(side="left", padx=10)
 
-yes_btn = ctk.CTkButton(master=root, text="Negative", corner_radius=15, hover_color="#8B0000", text_color="white", border_width=2, border_color="#2c3e50", fg_color="#8B0000", command=on_no)
+yes_btn = ctk.CTkButton(master=root, text="Negative", corner_radius=15, hover_color="#630C0C", text_color="white", border_width=2, border_color="#2c3e50", fg_color="#8B0000", command=on_no, font=("Dubai", 15))
 yes_btn.pack(side="left", padx=10)
 
 root.mainloop()
