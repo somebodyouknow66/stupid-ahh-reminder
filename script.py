@@ -32,7 +32,8 @@ def on_yes():
 
 def on_no():
     log_answer("negative")
-    root.destroy()
+    label = ctk.CTkLabel(root, text="ahhh, go back you dumb goose", font=("Dubai", 16))
+    label.pack(pady=5)
 
 root = ctk.CTk()
 root.geometry("600x400")
