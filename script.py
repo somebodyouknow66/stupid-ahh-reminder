@@ -35,7 +35,7 @@ def on_no():
     root.destroy()
 
 root = ctk.CTk()
-root.geometry("300x200")
+root.geometry("600x400")
 
 root.title("stupid-ahh-reminder")
 root.attributes("-topmost", True)
@@ -47,11 +47,14 @@ window_width, window_height = 320, 140
 label = ctk.CTkLabel(root, text="Did you bring the keys?", font=("Dubai", 25))
 label.pack(pady=20)
 
+button_frame = ctk.CTkFrame(root, fg_color="transparent")
+button_frame.pack(pady=100)
 
-yes_btn = ctk.CTkButton(master=root, text="Affirmative", corner_radius=15, hover_color="#2980b9", text_color="white", border_width=2, border_color="#2c3e50", command=on_yes, font=("Dubai", 15)) 
-yes_btn.pack(side="left", padx=10)
 
-yes_btn = ctk.CTkButton(master=root, text="Negative", corner_radius=15, hover_color="#630C0C", text_color="white", border_width=2, border_color="#2c3e50", fg_color="#8B0000", command=on_no, font=("Dubai", 15))
+yes_btn = ctk.CTkButton(master=button_frame, text="Affirmative", corner_radius=15, hover_color="#2980b9", text_color="white", border_width=2, border_color="#2c3e50", command=on_yes, font=("Dubai", 15)) 
+yes_btn.pack(side="left", padx=1)
+
+yes_btn = ctk.CTkButton(master=button_frame, text="Negative", corner_radius=15, hover_color="#630C0C", text_color="white", border_width=2, border_color="#2c3e50", fg_color="#8B0000", command=on_no, font=("Dubai", 15))
 yes_btn.pack(side="left", padx=10)
 
 root.mainloop()
