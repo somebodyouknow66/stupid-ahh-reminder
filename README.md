@@ -24,3 +24,6 @@ customtkniter
 python
 ```
 
+
+
+Project was orginally made for the Stardance program but now is being used as the application fees for the Fellows program.

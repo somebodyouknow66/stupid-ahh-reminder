@@ -1,9 +1,17 @@
+import sys
 import customtkinter as ctk
 import json
 from datetime import datetime
 import os 
 
-LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "keys_log.json")
+if getattr(sys, 'frozen', False):
+    app_dir = os.path.dirname(sys.executable)
+else: 
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+
+LOG_FILE = os.path.join(app_dir, "keys_log.json")
+
+
 
 def log_answer(answer: str) -> None:
     """Today's answer"""
